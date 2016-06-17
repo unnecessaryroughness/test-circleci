@@ -6,7 +6,7 @@ RUN apt-get install -y git git-core
 
 RUN git clone git://github.com/creationix/nvm.git /nvm
 
-/nvm/nvm install v5.10.0
+RUN /nvm/nvm install v5.10.0
 
 # Copy app to /src
 COPY . /src
