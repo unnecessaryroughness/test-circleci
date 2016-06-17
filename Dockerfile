@@ -1,7 +1,9 @@
 FROM node:4-onbuild
 
 # Copy app to /src
-COPY . /src && cd /src && npm install
+COPY . /src
+
+RUN cd /src; npm install
 
 EXPOSE 8080
 
