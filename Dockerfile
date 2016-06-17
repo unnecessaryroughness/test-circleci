@@ -1,12 +1,8 @@
-FROM centos:centos6
+FROM ubuntu:14.04
 
-MAINTAINER nigelpoulton@hotmail.com
+RUN apt-get update
 
-# Enable EPEL for Node.js
-RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-
-# Install Node...
-RUN yum install -y npm
+RUN apt-get install -y nodejs npm git git-core
 
 # Copy app to /src
 COPY . /src
@@ -16,4 +12,4 @@ RUN cd /src; npm install
 
 EXPOSE 8080
 
-CMD cd /src && node ./app.js
+CMD cd /src && nodejs ./app.js
